@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Time Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+
+        <div class="logo-content">
+            <i class='bx bx-time-five'></i>
+            <span class="logo-name">Aura Time</span>
+        </div>
+
+        <ul class="nav-list">
+
+            <li>
+                <a href="#" class="nav-btn active" data-page="clock-page">
+                    <i class='bx bx-time'></i>
+                    <span>Clock</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="nav-btn" data-page="stopwatch-page">
+                    <i class='bx bx-timer'></i>
+                    <span>Stopwatch</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="nav-btn" data-page="events-page">
+                    <i class='bx bx-calendar'></i>
+                    <span>Events</span>
+                </a>
+            </li>
+
+        </ul>
+
+        <!-- THEME BUTTON -->
+        <div class="theme-section">
+
+            <button id="theme-toggle">
+                <i class='bx bx-moon'></i>
+                <span>Dark Mode</span>
+            </button>
+
+        </div>
+
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- CLOCK PAGE -->
+        <section id="clock-page" class="page active-page">
+
+            <header>
+                <h1 id="greeting">Good Morning</h1>
+                <p id="date-display">January 1st, 2024</p>
+            </header>
+
+            <section class="clock-card">
+
+                <!-- ANALOG CLOCK -->
+
+                <div class="analog-clock">
+
+                    <div class="hand hour" id="hour-hand"></div>
+
+                    <div class="hand minute" id="minute-hand"></div>
+
+                    <div class="hand second" id="second-hand"></div>
+
+                    <div class="center-dot"></div>
+
+                    <span class="number n12">12</span>
+                    <span class="number n3">3</span>
+                    <span class="number n6">6</span>
+                    <span class="number n9">9</span>
+
+                </div>
+
+                <!-- DIGITAL CLOCK -->
+
+                <div id="digital-clock">00:00:00</div>
+
+                <div class="clock-footer">
+
+                    <span id="ampm">PM</span>
+
+                    <div class="seconds-bar">
+                        <div id="progress"></div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+        <!-- STOPWATCH PAGE -->
+        <section id="stopwatch-page" class="page">
+
+            <h1>Stopwatch</h1>
+
+            <div class="clock-card">
+
+                <div id="stopwatch-display">00:00:00</div>
+
+                <div class="stopwatch-buttons">
+
+                    <button id="start-btn">Start</button>
+                    <button id="pause-btn">Pause</button>
+                    <button id="reset-btn">Reset</button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- EVENTS PAGE -->
+        <section id="events-page" class="page">
+
+            <h1>My Events</h1>
+
+            <div class="clock-card events-card">
+
+                <!-- INPUT -->
+
+                <div class="event-input-box">
+
+                    <input
+                        type="text"
+                        id="event-input"
+                        placeholder="Enter your event..."
+                    >
+
+                    <button id="add-event-btn">
+                        Add Event
+                    </button>
+
+                </div>
+
+                <!-- EVENT LIST -->
+
+                <ul class="events-list" id="events-list">
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
