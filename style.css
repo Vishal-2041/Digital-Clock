@@ -1,0 +1,681 @@
+:root {
+
+    --primary: #6366f1;
+
+    --bg-main: #ffffff;
+
+    --bg-side: #ffffff;
+
+    --text-main: #111827;
+
+    --card-bg: rgba(255, 255, 255, 0.95);
+
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* DARK MODE */
+
+[data-theme="dark"] {
+
+    --bg-main: #0f172a;
+
+    --bg-side: #1e293b;
+
+    --text-main: #f1f5f9;
+
+    --card-bg: rgba(30, 41, 59, 0.9);
+}
+
+/* RESET */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: 'Inter', sans-serif;
+}
+
+/* BODY */
+
+body {
+
+    display: flex;
+
+    min-height: 100vh;
+
+    background-color: var(--bg-main);
+
+    color: var(--text-main);
+
+    transition: var(--transition);
+}
+
+/* SIDEBAR */
+
+.sidebar {
+
+    width: 260px;
+
+    background: var(--bg-side);
+
+    padding: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    border-right: 1px solid #e5e7eb;
+
+    transition: var(--transition);
+}
+
+/* LOGO */
+
+.logo-content {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 24px;
+
+    font-weight: 700;
+}
+
+.logo-content i {
+
+    font-size: 32px;
+
+    color: var(--primary);
+}
+
+/* NAVIGATION */
+
+.nav-list {
+
+    list-style: none;
+
+    margin-top: 50px;
+
+    flex-grow: 1;
+}
+
+.nav-list li a {
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 14px;
+
+    text-decoration: none;
+
+    color: var(--text-main);
+
+    border-radius: 12px;
+
+    margin-bottom: 10px;
+
+    transition: var(--transition);
+
+    font-weight: 500;
+}
+
+.nav-list li a:hover,
+.nav-list li a.active {
+
+    background: var(--primary);
+
+    color: white;
+}
+
+.nav-list i {
+
+    font-size: 22px;
+
+    margin-right: 15px;
+}
+
+/* THEME BUTTON */
+
+.theme-section {
+
+    margin-top: auto;
+}
+
+#theme-toggle {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: var(--primary);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    transition: var(--transition);
+}
+
+#theme-toggle:hover {
+
+    transform: scale(1.02);
+}
+
+/* MAIN CONTENT */
+
+.main-content {
+
+    flex-grow: 1;
+
+    padding: 60px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+}
+
+/* PAGES */
+
+.page {
+
+    display: none;
+
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    animation: fadeIn 0.3s ease;
+}
+
+.active-page {
+
+    display: flex;
+}
+
+/* HEADER */
+
+header {
+
+    text-align: center;
+}
+
+header h1 {
+
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+header p {
+
+    opacity: 0.7;
+
+    font-size: 18px;
+}
+
+/* CLOCK CARD */
+
+.clock-card {
+
+    background: var(--card-bg);
+
+    backdrop-filter: blur(10px);
+
+    margin-top: 50px;
+
+    padding: 50px 80px;
+
+    border-radius: 30px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    text-align: center;
+}
+
+/* ANALOG CLOCK */
+
+.analog-clock {
+
+    width: 260px;
+
+    height: 260px;
+
+    border-radius: 50%;
+
+    border: 10px solid rgba(99, 102, 241, 0.15);
+
+    position: relative;
+
+    margin: 0 auto 40px;
+
+    background: var(--bg-side);
+
+    box-shadow:
+        inset 0 0 20px rgba(0,0,0,0.05),
+        0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* CENTER */
+
+.center-dot {
+
+    width: 16px;
+
+    height: 16px;
+
+    background: var(--primary);
+
+    border-radius: 50%;
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 10;
+}
+
+/* HANDS */
+
+.hand {
+
+    position: absolute;
+
+    bottom: 50%;
+
+    left: 50%;
+
+    transform-origin: bottom;
+
+    transform: translateX(-50%) rotate(0deg);
+
+    border-radius: 10px;
+}
+
+.hour {
+
+    width: 8px;
+
+    height: 65px;
+
+    background: var(--text-main);
+}
+
+.minute {
+
+    width: 6px;
+
+    height: 90px;
+
+    background: #6366f1;
+}
+
+.second {
+
+    width: 3px;
+
+    height: 105px;
+
+    background: crimson;
+}
+
+/* NUMBERS */
+
+.number {
+
+    position: absolute;
+
+    font-weight: 700;
+
+    font-size: 22px;
+
+    color: var(--text-main);
+}
+
+.n12 {
+
+    top: 15px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.n3 {
+
+    right: 20px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+.n6 {
+
+    bottom: 10px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.n9 {
+
+    left: 20px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+/* DIGITAL CLOCK */
+
+#digital-clock,
+#stopwatch-display {
+
+    font-size: 6rem;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    background: linear-gradient(
+        to bottom right,
+        var(--primary),
+        #a855f7
+    );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+/* CLOCK FOOTER */
+
+.clock-footer {
+
+    margin-top: 20px;
+}
+
+#ampm {
+
+    font-size: 22px;
+
+    font-weight: 700;
+}
+
+/* PROGRESS BAR */
+
+.seconds-bar {
+
+    width: 100%;
+
+    height: 4px;
+
+    background: rgba(0, 0, 0, 0.1);
+
+    margin-top: 20px;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+#progress {
+
+    height: 100%;
+
+    width: 0%;
+
+    background: var(--primary);
+
+    transition: width 1s linear;
+}
+
+/* STOPWATCH */
+
+.stopwatch-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.stopwatch-buttons button {
+
+    padding: 12px 24px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: var(--transition);
+}
+
+.stopwatch-buttons button:hover {
+
+    transform: translateY(-2px);
+}
+
+/* EVENTS */
+
+.events-card {
+
+    width: 100%;
+
+    max-width: 700px;
+}
+
+.event-input-box {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+.event-input-box input {
+
+    flex: 1;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid #d1d5db;
+
+    outline: none;
+
+    font-size: 16px;
+
+    background: transparent;
+
+    color: var(--text-main);
+}
+
+.event-input-box button {
+
+    padding: 14px 22px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: var(--transition);
+}
+
+.event-input-box button:hover {
+
+    transform: scale(1.03);
+}
+
+.events-list {
+
+    list-style: none;
+
+    width: 100%;
+}
+
+.events-list li {
+
+    background: rgba(99, 102, 241, 0.08);
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    margin-bottom: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 17px;
+}
+
+/* DELETE BUTTON */
+
+.delete-btn {
+
+    background: crimson;
+
+    color: white;
+
+    border: none;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(10px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+
+    body {
+
+        flex-direction: column;
+    }
+
+    .sidebar {
+
+        width: 100%;
+
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        align-items: center;
+    }
+
+    .nav-list {
+
+        display: flex;
+
+        margin-top: 0;
+
+        gap: 10px;
+    }
+
+    .main-content {
+
+        padding: 20px;
+    }
+
+    #digital-clock,
+    #stopwatch-display {
+
+        font-size: 3rem;
+    }
+
+    .clock-card {
+
+        padding: 30px;
+    }
+
+    .event-input-box {
+
+        flex-direction: column;
+    }
+
+    .analog-clock {
+
+        width: 220px;
+
+        height: 220px;
+    }
+}
